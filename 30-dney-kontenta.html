@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 дней контента без мук — Анара Сарсенова</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0908; color: #ece0c4; min-height: 100vh;
+    padding: 24px 16px 60px; font-size: 17px; line-height: 1.6;
+    background-image: radial-gradient(circle at 50% 0%, rgba(196,30,30,0.12), transparent 55%),
+                      radial-gradient(circle at 50% 100%, rgba(201,162,39,0.07), transparent 50%);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .topbar {
+    position: relative; min-height: 44px; margin-bottom: 38px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gift {
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
+    padding: 8px 18px; font-size: 16px; font-weight: 600;
+    background: rgba(201,162,39,0.08);
+  }
+  .topbrand {
+    text-align: center; font-size: 18px; font-weight: 800; letter-spacing: 0.16em;
+    color: #ece0c4; text-transform: uppercase;
+  }
+  .topbrand .gold { color: #c9a227; display: block; font-size: 14px;
+    letter-spacing: 0.28em; margin-top: 3px; font-weight: 600; }
+  @media (max-width: 620px) {
+    .topbar { flex-direction: column; gap: 12px; min-height: 0; }
+    .gift { position: static; transform: none; }
+  }
+
+  h1 { font-size: clamp(32px, 6.5vw, 52px); font-weight: 800; line-height: 1.14;
+       text-align: center; margin: 10px 0 8px;
+       background: linear-gradient(180deg, #f5ecd8, #d8c9a0);
+       -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h3 { font-size: clamp(20px, 4vw, 26px); font-weight: 600; color: #c4b797;
+       text-align: center; margin: 0 0 26px; }
+  h2 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; margin: 48px 0 18px;
+       background: linear-gradient(180deg, #e8493c, #8e1414);
+       -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { margin: 14px 0; color: #d6c9a8; }
+  strong { color: #f0e6cd; }
+  ol, ul { margin: 14px 0 14px 24px; color: #d6c9a8; }
+  li { margin: 6px 0; }
+  em { color: #b8ab8d; }
+  hr { border: none; height: 1px; margin: 40px auto; width: 60%;
+       background: linear-gradient(90deg, transparent, #c9a22766, transparent); }
+
+  /* промпт-карточки из blockquote */
+  blockquote {
+    position: relative;
+    border: 1px solid #c9a22755; background: #16130d; border-radius: 14px;
+    padding: 18px 20px 46px; margin: 12px 0 26px;
+    font-size: 15.5px; color: #f0e6cd; line-height: 1.55;
+  }
+  blockquote p { margin: 6px 0; color: #f0e6cd; }
+  .copy-btn {
+    position: absolute; right: 12px; bottom: 10px;
+    background: transparent; border: 1px solid #c9a227; color: #c9a227;
+    border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer;
+    font-weight: 600;
+  }
+  .copy-btn:hover { background: #c9a22715; }
+
+  /* заголовок промпта (strong в начале строки перед blockquote) */
+  .wrap > p > strong:only-child { font-size: 18px; color: #ece0c4; }
+
+  .qr-title { text-align: center; margin-top: 56px; font-size: 20px; font-weight: 700;
+    color: #ece0c4; }
+  .qr-row { display: flex; justify-content: center; gap: 28px; margin-top: 22px;
+    flex-wrap: wrap; }
+  .qr-card { background: #fff; border-radius: 16px; padding: 14px 14px 10px;
+    text-align: center; width: 200px;
+    box-shadow: 0 0 0 1px #c9a22744, 0 8px 30px rgba(0,0,0,0.5); }
+  .qr-card img { width: 170px; height: 170px; display: block; margin: 0 auto; }
+  .qr-net { color: #1a1a1a; font-weight: 700; font-size: 15px; margin-top: 6px; }
+  .qr-label { margin-top: 10px; font-size: 15px; color: #c9a227; font-weight: 600;
+    text-align: center; }
+  footer { margin-top: 50px; text-align: center; font-size: 15px; color: #9a8d72;
+    line-height: 1.7; }
+  footer .name { color: #c9a227; font-weight: 600; }
+  footer a { color: #e8c96a; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span class="gift">🎁 Подарок</span>
+    <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
+  </div>
+
+<h1>30 дней контента без мук</h1>
+<h3>Система генерации идей для предпринимателя — от Анары Сарсеновой</h3>
+<p>Эта система решает главную боль эксперта: «о чём писать?». За 4 недели ты
+соберёшь 80-100 идей для постов и рилсов — хватит на 2-3 месяца вперёд.
+Каждая механика = готовый промпт: копируй, подставь свою нишу, получи темы.</p>
+<p>Я — Анара Сарсенова, бизнес-консультант и AI-эксперт. 14 лет в консалтинге,
+3000+ обученных предпринимателей. Всю систему я использую сама.</p>
+<hr />
+<h2>Неделя 1 — Слушаем аудиторию</h2>
+<h3>Механика 1. Вопросы под постами — это темы, а не комментарии</h3>
+<p>Люди сами говорят, что хотят читать. Собери вопросы из комментариев,
+директа и разговоров с клиентами за последние месяцы.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Вот вопросы, которые мне задаёт аудитория (вставь списком). Сгруппируй их
+по темам, найди повторяющиеся боли и преврати каждую группу в 3 идеи постов:
+одна с практическим решением, одна с личным опытом, одна с разбором ошибки.</p>
+</blockquote>
+<h3>Механика 2. Три собеседника</h3>
+<p>Пусть ИИ сыграет трёх твоих клиентов: новичка, скептика и продвинутого.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Моя ниша: [ниша]. Сыграй трёх моих подписчиков: полный новичок, скептик
+(«это всё не работает»), продвинутый (хочет тонкости). От лица каждого задай
+10 вопросов, которые он реально бы мне задал. Итого 30 вопросов списком.</p>
+</blockquote>
+<h3>Механика 3. Письмо себе в прошлое</h3>
+<p>Самый недооценённый источник тем: то, чего ТЫ не знала год назад.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Я эксперт в [ниша]. Помоги вспомнить, чего я не понимала, когда начинала:
+задай мне 15 вопросов формата «а ты знала тогда, что...». Мои ответы потом
+превратим в посты для новичков.</p>
+</blockquote>
+<hr />
+<h2>Неделя 2 — Умножаем каждую тему</h2>
+<h3>Механика 4. Одна тема — десять углов</h3>
+<p>Любую тему из недели 1 можно рассказать десятью способами: история из практики,
+неожиданный факт, ошибки новичков, до/после клиента, сравнение подходов,
+чек-лист, непопулярное мнение, ответ на вопрос, разбор мифа, пошаговая инструкция.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Тема: [тема]. Разверни её в 10 разных постов по углам: история, факт, ошибки,
+до/после, сравнение, чек-лист, непопулярное мнение, вопрос-ответ, миф,
+инструкция. Для каждого дай заголовок и 2 строки о чём он.</p>
+</blockquote>
+<h3>Механика 5. Большая тема — маленькими порциями</h3>
+<p>Сложное явление режь на серию: 5-7 постов от простого к сложному.
+Серия удерживает аудиторию лучше одиночных постов (ждут продолжения).</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Тема: [большая тема]. Разбей на серию из 6 постов от азов к продвинутому.
+Каждый пост: заголовок + главная мысль + мостик к следующему посту серии.</p>
+</blockquote>
+<hr />
+<h2>Неделя 3 — Выделяемся из толпы</h2>
+<h3>Механика 6. Совет наоборот</h3>
+<p>Возьми популярный совет твоей ниши и найди, где он НЕ работает.
+Такие посты вызывают споры в комментариях — а споры двигают охваты.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>В моей нише все советуют: [популярный совет]. Найди 5 ситуаций, где этот
+совет вредит или не работает, с объяснением почему. Преврати каждую в идею
+поста с провокационным (но честным) заголовком.</p>
+</blockquote>
+<h3>Механика 7. Неожиданные пары</h3>
+<p>Скрести свою нишу с темой, о которой пишут другие ниши. На пересечении
+рождается контент, которого нет у конкурентов.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Моя ниша: [ниша]. Скрести её с темами: воспитание детей, спорт, путешествия,
+кино, кухня. Для каждого пересечения найди 2 неожиданные, но честные связки
+и заголовки постов. Без притянутых за уши аналогий.</p>
+</blockquote>
+<hr />
+<h2>Неделя 4 — Запускаем маховик</h2>
+<h3>Механика 8. Каждый пост рождает следующий</h3>
+<p>После каждого опубликованного поста у читателя остаются вопросы. Они — твои
+следующие темы. Так контент начинает воспроизводить сам себя.</p>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Вот мой пост (вставь текст). Какие 5 вопросов остались у внимательного
+читателя после него? Преврати каждый вопрос в идею следующего поста.</p>
+</blockquote>
+<h3>Финальная сборка месяца</h3>
+<p><strong>Промпт:</strong></p>
+<blockquote>
+<p>Вот все мои идеи за месяц (вставь список). Собери контент-план на 30 дней:
+чередуй пользу, истории и лёгкие темы; серии ставь подряд; продающие посты
+не чаще 1 из 10. Формат: дата, тема, тип поста, одна строка о содержании.</p>
+</blockquote>
+<hr />
+<h2>Правило, без которого система не работает</h2>
+<p>Идеи ничего не стоят без регулярности. Алгоритмы соцсетей любят тех, кто
+публикуется стабильно: лучше 4 поста в неделю месяцами, чем 15 постов за
+неделю и тишина. Эта система снимает вопрос «о чём писать» — вопрос
+«публиковать ли сегодня» снимаешь только ты.</p>
+<hr />
+<p><em>Хочешь, чтобы ИИ не только придумывал темы, но и писал сценарии, вёл твою
+аналитику и собирал заявки? Этому я учу предпринимателей: практично, без
+технического жаргона, на твоём бизнесе. Пиши мне в директ @anara.sarsen
+слово СИСТЕМА — расскажу, с чего начать.</em></p>
+<p><em>© Анара Сарсенова · «За пределы привычного»</em></p>
+
+  <div class="qr-title">Подписывайся — там больше пользы про ИИ и бизнес ✦</div>
+  <div class="qr-row">
+    <div>
+      <a href="https://t.me/anara_sarsen" target="_blank" style="text-decoration:none;">
+        <div class="qr-card"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQMAAADfZzo7AAAABlBMVEUREAj////IB/GOAAAA1UlEQVR42u1ZQQ6AMAwi/v/PGLWlxIN32abGuJ6QQlsFvxZ29P9RPIt9zQ4PfK0/RtEvBNdxn7OTivdmthD7PRtvJTO5CN4HMxfgt21NfpWt3/ZnmoqD/dmK0+s5Np+dYdN0aj6zmgxKvMV0bD6L19op3kPxiuBmu+EH+9XUJsT3k5zOGarAsfqtuahcmZBhR9cjGtco4LH9sw3CqsXR9cinou6kmd4/S75ifIXvG/Ln+PnX5IvoeUG6Nenm88sRMVf4PjltlcpxuD/beBg9H+2/D7HRE7OJIYX9TdfoAAAAAElFTkSuQmCC" alt="QR Telegram">
+        <div class="qr-net">Telegram</div></div></a>
+      <div class="qr-label">Канал @anara_sarsen</div>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/anara.sarsen/" target="_blank" style="text-decoration:none;">
+        <div class="qr-card"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEIAQMAAACZOPi8AAAABlBMVEUREAj////IB/GOAAABEUlEQVR42u2ZSw7DQAhDrd7/zlRJwUClKvu+mf6miJUFxiaKp6OTwc7Q51x33e/8ZPSlp/NPGSrQFIlIhipKxOP6aQgKj4yS8ZDvB48EI7/ReEzqTS4l80devl7Y+bLG700dK0zkjygODesQD11efdScHX+HCmHWR41c7e5h8ofGQEkJQu6XgmHqsOYR4Ly1RrdsV0t4KJ8OHVbIcOujPa4MTVpeYn2orctoGGp9VHdkdXRpcP2c/X64Tdw5zH7pRWGMvlFQ/X5vgtrzQv1cr5aHSrUy4+4/YvTJIFjwfkxrtSyx9+u9GTN/iL1f11AhYP6wGLXDjba4YP6ozUfbPKb+kAXZeo4rrH85z/dPxo+MN+zOLMA8juF8AAAAAElFTkSuQmCC" alt="QR Instagram">
+        <div class="qr-net">Instagram</div></div></a>
+      <div class="qr-label">@anara.sarsen</div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="name">Анара Сарсенова</span> — бизнес-консультант и AI-эксперт.<br>
+    14 лет в консалтинге · 3000+ обученных предпринимателей · внедрение ИИ в бизнес.<br>
+    Telegram: <a href="https://t.me/anara_sarsen">@anara_sarsen</a> ·
+    Instagram: <a href="https://www.instagram.com/anara.sarsen/">@anara.sarsen</a>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('blockquote').forEach(function(bq) {
+  var btn = document.createElement('button');
+  btn.className = 'copy-btn';
+  btn.textContent = '📋 Копировать';
+  btn.onclick = function() {
+    var text = bq.innerText.replace('📋 Копировать','').trim();
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✅ Скопировано';
+      setTimeout(function() { btn.textContent = '📋 Копировать'; }, 2000);
+    });
+  };
+  bq.appendChild(btn);
+});
+</script>
+</body>
+</html>

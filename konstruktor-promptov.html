@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конструктор промптов — Анара Сарсенова</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0908;
+    color: #ece0c4;
+    min-height: 100vh;
+    padding: 24px 16px 60px;
+    background-image: radial-gradient(circle at 50% 0%, rgba(196,30,30,0.12), transparent 55%),
+                      radial-gradient(circle at 50% 100%, rgba(201,162,39,0.07), transparent 50%);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  .topbar {
+    position: relative; min-height: 44px; margin-bottom: 34px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gift {
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
+    padding: 8px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
+    background: rgba(201,162,39,0.08);
+  }
+  .topbrand {
+    text-align: center; font-size: 18px; font-weight: 800; letter-spacing: 0.16em;
+    color: #ece0c4; text-transform: uppercase;
+  }
+  .topbrand .gold { color: #c9a227; display: block; font-size: 14px;
+    letter-spacing: 0.28em; margin-top: 3px; font-weight: 600; }
+  @media (max-width: 620px) {
+    .topbar { flex-direction: column; gap: 12px; min-height: 0; }
+    .gift { position: static; transform: none; }
+  }
+
+  header { text-align: center; margin-bottom: 40px; }
+  .brand-top {
+    font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  h1 { font-size: clamp(36px, 7vw, 58px); font-weight: 800; line-height: 1.12; }
+  h1 .red {
+    background: linear-gradient(180deg, #e8493c, #8e1414);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .sub { margin-top: 16px; color: #c4b797; font-size: 18px; line-height: 1.55; }
+  .gold-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:18px; }
+  .gold-line { width: 90px; height:1px; background: linear-gradient(90deg, transparent, #c9a227); }
+  .gold-line.r { background: linear-gradient(90deg, #c9a227, transparent); }
+  .spark { color:#e8c96a; font-size:14px; }
+
+  .step { margin-bottom: 26px; }
+  .step-title {
+    font-size: 17px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #c9a227; margin-bottom: 12px; font-weight: 700;
+  }
+  .options { display: flex; flex-wrap: wrap; gap: 10px; }
+  .opt {
+    border: 1px solid #3a332a; background: #16130f; color: #ece0c4;
+    border-radius: 12px; padding: 12px 16px; font-size: 15px; cursor: pointer;
+    transition: all .18s ease; user-select: none;
+  }
+  .opt:hover { border-color: #c9a227; transform: translateY(-1px); }
+  .opt.active {
+    border-color: #c9a227; background: linear-gradient(180deg, #241d10, #1a150c);
+    box-shadow: 0 0 18px rgba(201,162,39,0.25); color: #f5ecd8;
+  }
+  input[type=text] {
+    width: 100%; padding: 14px 16px; border-radius: 12px; font-size: 16px;
+    border: 1px solid #3a332a; background: #16130f; color: #ece0c4; outline: none;
+  }
+  input[type=text]:focus { border-color: #c9a227; }
+  input::placeholder { color: #6e6450; }
+
+  .btn {
+    display: block; width: 100%; margin-top: 8px; padding: 17px;
+    font-size: 18px; font-weight: 700; letter-spacing: 0.03em;
+    color: #fff; background: linear-gradient(180deg, #d8352a, #8e1414);
+    border: none; border-radius: 14px; cursor: pointer;
+    box-shadow: 0 6px 26px rgba(196,30,30,0.35);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(196,30,30,0.45); }
+
+  #result-box { display: none; margin-top: 30px; }
+  #result-title { font-size: 15px; color: #c9a227; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+  #result {
+    width: 100%; min-height: 380px; padding: 18px; font-size: 14.5px; line-height: 1.55;
+    border-radius: 14px; border: 1px solid #c9a22755; background: #14110c; color: #f0e6cd;
+    font-family: 'Consolas', 'Menlo', monospace; resize: vertical; white-space: pre-wrap;
+  }
+  .btn-copy {
+    margin-top: 12px; padding: 13px; font-size: 15px; width: 100%;
+    background: transparent; color: #c9a227; border: 1px solid #c9a227;
+    border-radius: 12px; cursor: pointer; font-weight: 600; transition: all .18s;
+  }
+  .btn-copy:hover { background: #c9a22715; }
+  .hint { margin-top: 14px; font-size: 13.5px; color: #8d8168; line-height: 1.5; }
+
+  footer { margin-top: 54px; text-align: center; font-size: 16px; color: #9a8d72; line-height: 1.7; }
+  footer .name { color: #c9a227; font-weight: 600; }
+  footer a { color: #e8c96a; text-decoration: none; }
+
+  .qr-title {
+    text-align: center; margin-top: 50px; font-size: 20px; font-weight: 700;
+    color: #ece0c4; letter-spacing: 0.04em;
+  }
+  .qr-row {
+    display: flex; justify-content: center; gap: 28px; margin-top: 22px; flex-wrap: wrap;
+  }
+  .qr-card {
+    background: #fff; border-radius: 16px; padding: 14px 14px 10px;
+    text-align: center; width: 200px;
+    box-shadow: 0 0 0 1px #c9a22744, 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .qr-card img { width: 170px; height: 170px; display: block; margin: 0 auto; }
+  .qr-card .qr-net { color: #1a1a1a; font-weight: 700; font-size: 15px; margin-top: 6px; }
+  .qr-label { margin-top: 10px; font-size: 15px; color: #c9a227; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span class="gift">🎁 Подарок</span>
+    <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
+  </div>
+  <header>
+    <div class="brand-top">За пределы привычного</div>
+    <h1>КОНСТРУКТОР <span class="red">ПРОМПТОВ</span></h1>
+    <p class="sub">Собери профессиональный промпт для ChatGPT или Claude за 20 секунд.<br>
+    Выбери 4 кубика, впиши тему — получи готовый промпт, который пишет контент как маркетолог с опытом.</p>
+    <div class="gold-row"><div class="gold-line"></div><span class="spark">✦</span>
+      <span style="color:#c9a227; font-size:22px; font-weight:600;">от Анары Сарсеновой</span>
+      <span class="spark">✦</span><div class="gold-line r"></div></div>
+  </header>
+
+  <div class="step">
+    <div class="step-title">Шаг 1 — Формат</div>
+    <div class="options" id="format">
+      <div class="opt active" data-v="reels">🎬 Reels</div>
+      <div class="opt" data-v="post">📝 Пост</div>
+      <div class="opt" data-v="carousel">🖼️ Карусель</div>
+      <div class="opt" data-v="stories">📖 Сторис-серия</div>
+      <div class="opt" data-v="telegram">✈️ Telegram</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">Шаг 2 — Цель</div>
+    <div class="options" id="goal">
+      <div class="opt active" data-v="attract">🧲 Привлечение</div>
+      <div class="opt" data-v="warm">🔥 Прогрев</div>
+      <div class="opt" data-v="sell">💰 Продажа</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">Шаг 3 — Голос</div>
+    <div class="options" id="voice">
+      <div class="opt active" data-v="mentor">⚡ Уверенный наставник</div>
+      <div class="opt" data-v="story">💛 Личная история</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">Шаг 4 — Ниша</div>
+    <div class="options" id="niche">
+      <div class="opt active" data-v="ai">🤖 ИИ в бизнесе</div>
+      <div class="opt" data-v="market">🛍️ Маркетплейсы</div>
+      <div class="opt" data-v="finance">💳 Гранты и финансы</div>
+      <div class="opt" data-v="custom">✏️ Своя ниша</div>
+    </div>
+    <div style="margin-top:10px; display:none;" id="niche-custom-wrap">
+      <input type="text" id="niche-custom" placeholder="Опиши свою нишу: кто ты и для кого работаешь">
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">Шаг 5 — Тема</div>
+    <input type="text" id="topic" placeholder="Например: как ИИ экономит 3 часа в день предпринимателю">
+  </div>
+
+  <button class="btn" onclick="build()">Собрать промпт ✨</button>
+
+  <div id="result-box">
+    <div id="result-title">✦ Твой промпт готов</div>
+    <textarea id="result" readonly></textarea>
+    <button class="btn-copy" onclick="copyPrompt()" id="copybtn">📋 Скопировать промпт</button>
+    <p class="hint">Вставь промпт в ChatGPT, Claude или другую нейросеть. Чем точнее заполнишь
+    детали в квадратных скобках (если они есть), тем сильнее будет результат.</p>
+  </div>
+
+  <div class="qr-title">Подписывайся — там больше пользы про ИИ и бизнес ✦</div>
+  <div class="qr-row">
+    <div>
+      <a href="https://t.me/anara_sarsen" target="_blank" style="text-decoration:none;">
+        <div class="qr-card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQMAAADfZzo7AAAABlBMVEUREAj////IB/GOAAAA1UlEQVR42u1ZQQ6AMAwi/v/PGLWlxIN32abGuJ6QQlsFvxZ29P9RPIt9zQ4PfK0/RtEvBNdxn7OTivdmthD7PRtvJTO5CN4HMxfgt21NfpWt3/ZnmoqD/dmK0+s5Np+dYdN0aj6zmgxKvMV0bD6L19op3kPxiuBmu+EH+9XUJsT3k5zOGarAsfqtuahcmZBhR9cjGtco4LH9sw3CqsXR9cinou6kmd4/S75ifIXvG/Ln+PnX5IvoeUG6Nenm88sRMVf4PjltlcpxuD/beBg9H+2/D7HRE7OJIYX9TdfoAAAAAElFTkSuQmCC" alt="QR Telegram">
+          <div class="qr-net">Telegram</div>
+        </div>
+      </a>
+      <div class="qr-label">Канал @anara_sarsen</div>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/anara.sarsen/" target="_blank" style="text-decoration:none;">
+        <div class="qr-card">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEIAQMAAACZOPi8AAAABlBMVEUREAj////IB/GOAAABEUlEQVR42u2ZSw7DQAhDrd7/zlRJwUClKvu+mf6miJUFxiaKp6OTwc7Q51x33e/8ZPSlp/NPGSrQFIlIhipKxOP6aQgKj4yS8ZDvB48EI7/ReEzqTS4l80devl7Y+bLG700dK0zkjygODesQD11efdScHX+HCmHWR41c7e5h8ofGQEkJQu6XgmHqsOYR4Ly1RrdsV0t4KJ8OHVbIcOujPa4MTVpeYn2orctoGGp9VHdkdXRpcP2c/X64Tdw5zH7pRWGMvlFQ/X5vgtrzQv1cr5aHSrUy4+4/YvTJIFjwfkxrtSyx9+u9GTN/iL1f11AhYP6wGLXDjba4YP6ozUfbPKb+kAXZeo4rrH85z/dPxo+MN+zOLMA8juF8AAAAAElFTkSuQmCC" alt="QR Instagram">
+          <div class="qr-net">Instagram</div>
+        </div>
+      </a>
+      <div class="qr-label">@anara.sarsen</div>
+    </div>
+  </div>
+
+  <footer>
+    Конструктор создала <span class="name">Анара Сарсенова</span> — бизнес-консультант и AI-эксперт.<br>
+    14 лет в консалтинге · 3000+ обученных предпринимателей · внедрение ИИ в бизнес.<br>
+    Telegram: <a href="https://t.me/anara_sarsen" target="_blank">@anara_sarsen</a> ·
+    Instagram: <a href="https://www.instagram.com/anara.sarsen/" target="_blank">@anara.sarsen</a>
+  </footer>
+</div>
+
+<script>
+const FORMATS = {
+  reels: {
+    role: "Ты сценарист коротких видео, который делает Reels с удержанием выше 80%.",
+    rules: "Формат: сценарий Reels на 30-45 секунд.\n- Хук в первые 3 секунды: дословный текст оверлея КРУПНЫМИ БУКВАМИ + что в кадре\n- Разбей сценарий по таймингу (0-3 сек, 3-10 сек и т.д.)\n- Для каждого блока укажи: что говорю + какие кадры показать (b-roll, не только лицо)\n- Простые короткие фразы, как в живой речи\n- В конце дай описание к рилсу (3-4 строки) и 8-10 хэштегов"
+  },
+  post: {
+    role: "Ты копирайтер, чьи посты дочитывают до конца и сохраняют.",
+    rules: "Формат: пост для Instagram на 900-1500 знаков.\n- Первая строка решает всё: интрига или сильное заявление, без воды\n- Короткие абзацы по 1-3 строки, между ними воздух\n- Один пост = одна мысль\n- В конце вопрос или призыв, на который легко ответить"
+  },
+  carousel: {
+    role: "Ты автор каруселей, которые листают до конца и сохраняют в закладки.",
+    rules: "Формат: карусель на 7-10 слайдов.\n- Слайд 1: цепляющий заголовок (5-8 слов, интрига или польза)\n- Каждый слайд: заголовок + 2-3 строки текста, не больше\n- Слайд со слайда должен «тянуть» дальше (недосказанность)\n- Предпоследний слайд: главный вывод\n- Последний слайд: призыв к действию\n- Для каждого слайда предложи идею визуала"
+  },
+  stories: {
+    role: "Ты сценарист сторис-воронок, которые смотрят до конца и отвечают на них.",
+    rules: "Формат: серия из 5-7 сторис.\n- Каждая сторис: что на экране + текст + интерактив, где уместен (опрос, слайдер, вопрос)\n- Первая сторис: захват внимания за 1 секунду\n- Постепенное раскрытие: каждая сторис даёт причину смотреть следующую\n- Финал: призыв (ответить, написать слово, перейти)"
+  },
+  telegram: {
+    role: "Ты автор Telegram-канала, которого читают, пересылают и цитируют.",
+    rules: "Формат: пост для Telegram на 800-1200 знаков.\n- Первый абзац сразу по делу, без прогрева\n- Экспертный, но живой тон: как умный друг объясняет за чашкой кофе\n- Уместны списки, эмодзи умеренно\n- В конце: вывод + лёгкий призыв (реакция, комментарий, репост)"
+  }
+};
+
+const GOALS = {
+  attract: {
+    name: "привлечение новой холодной аудитории",
+    structure: "Структура под холодную аудиторию (они меня ещё не знают):\n- НЕ начинай с продукта и НЕ продавай\n- Начни с истории, неожиданного факта или боли, в которой аудитория узнает себя\n- Дай быструю реальную пользу: чтобы человек подумал «ого, полезно» и подписался\n- CTA мягкий: подписаться, сохранить, написать кодовое слово за бонус"
+  },
+  warm: {
+    name: "прогрев и доверие существующей аудитории",
+    structure: "Структура под прогрев (они меня знают, но пока не покупали):\n- Покажи закулисье, процесс, кейс или личный опыт с уроком\n- Добавь конкретные цифры и детали: доверие живёт в деталях\n- Заверши мостиком к продукту без прямой продажи: «именно этому я учу на...»\n- CTA: вовлечение в диалог (вопрос) или кодовое слово за полезность"
+  },
+  sell: {
+    name: "продажа и сбор заявок",
+    structure: "Структура под продажу (для тёплой аудитории):\n- Начни с боли или желания, которое решает продукт\n- Покажи механизм: ЧТО именно человек получит и КАК это изменит его ситуацию\n- Добавь доказательства: кейс, отзыв, цифры результата\n- Сними главное возражение\n- CTA чёткий и один: написать кодовое слово / перейти / оставить заявку + дедлайн или ограничение, если есть честное"
+  }
+};
+
+const VOICES = {
+  mentor: "Тон: уверенный наставник. Пиши прямо и с характером, на 8 из 10 по уверенности: без агрессии, но и без заискивания. Простой язык, понятный новичку. Без канцелярита, без штампов («в современном мире», «не секрет что»), без длинных тире. Конкретика и некруглые цифры вместо общих слов.",
+  story: "Тон: тёплая личная история. Пиши от первого лица, как рассказ близкому человеку: живые детали, честные эмоции, момент уязвимости. Но история обязана вести к выводу, полезному читателю: не дневник, а урок через опыт. Простой язык, короткие фразы."
+};
+
+const NICHES = {
+  ai: "Моя ниша: внедрение ИИ и нейросетей в малый и средний бизнес. Аудитория: предприниматели и эксперты, новички в ИИ: им важно «зачем и как применить», а не технические детали.",
+  market: "Моя ниша: продажи на маркетплейсах (Kaspi, Wildberries, Ozon). Аудитория: селлеры и те, кто хочет начать: их волнуют товары, поставщики, маржа, автоматизация.",
+  finance: "Моя ниша: гранты, льготное финансирование и развитие бизнеса. Аудитория: предприниматели, которые хотят получить финансирование на развитие: их пугает бюрократия и «это не для меня».",
+  custom: ""
+};
+
+function pick(groupId) {
+  return document.querySelector('#' + groupId + ' .opt.active').dataset.v;
+}
+
+document.querySelectorAll('.options').forEach(group => {
+  group.addEventListener('click', e => {
+    const opt = e.target.closest('.opt');
+    if (!opt) return;
+    group.querySelectorAll('.opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    if (group.id === 'niche') {
+      document.getElementById('niche-custom-wrap').style.display =
+        opt.dataset.v === 'custom' ? 'block' : 'none';
+    }
+  });
+});
+
+function build() {
+  const f = FORMATS[pick('format')];
+  const g = GOALS[pick('goal')];
+  const v = VOICES[pick('voice')];
+  let n = NICHES[pick('niche')];
+  if (pick('niche') === 'custom') {
+    const custom = document.getElementById('niche-custom').value.trim();
+    n = custom ? ("Моя ниша: " + custom) : "Моя ниша: [опиши свою нишу и аудиторию]";
+  }
+  const topic = document.getElementById('topic').value.trim() || "[впиши тему]";
+
+  const prompt =
+f.role + "\n\n" +
+n + "\n\n" +
+"ЗАДАЧА: напиши контент на тему: «" + topic + "».\n" +
+"Цель контента: " + g.name + ".\n\n" +
+g.structure + "\n\n" +
+f.rules + "\n\n" +
+v + "\n\n" +
+"ВАЖНО:\n" +
+"- Сначала задай мне 2-3 уточняющих вопроса, если тебе не хватает фактов (мой опыт, цифры, примеры). Потом пиши.\n" +
+"- Дай 3 варианта первой фразы (хука) на выбор, потом полный текст с лучшим из них.\n" +
+"- Не выдумывай факты и цифры за меня: где нужны мои данные, ставь [квадратные скобки].";
+
+  const box = document.getElementById('result-box');
+  document.getElementById('result').value = prompt;
+  box.style.display = 'block';
+  box.scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyPrompt() {
+  const ta = document.getElementById('result');
+  ta.select();
+  navigator.clipboard.writeText(ta.value).then(() => {
+    const b = document.getElementById('copybtn');
+    b.textContent = '✅ Скопировано!';
+    setTimeout(() => b.textContent = '📋 Скопировать промпт', 2000);
+  });
+}
+</script>
+</body>
+</html>
