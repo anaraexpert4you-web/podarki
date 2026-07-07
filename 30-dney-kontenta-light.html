@@ -4,12 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30 дней контента без мук — Анара Сарсенова (светлая версия)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&subset=cyrillic&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: #ffffff; color: #2b2318; min-height: 100vh;
     font-size: 17px; line-height: 1.6;
+  }
+  /* единая шрифтовая система: все витринные надписи — Montserrat */
+  .topbrand, .brand-top, .hero-title, .gold-row .from, .gift, h2, .qr-title {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
   }
   .dark-head {
     background: #0a0908;
@@ -20,23 +27,24 @@
   .wrap { max-width: 760px; margin: 0 auto; }
   .content { max-width: 760px; margin: 0 auto; padding: 20px 16px 60px; }
 
-  .topbar { position: relative; min-height: 44px; margin-bottom: 34px;
+  .topbar { position: relative; min-height: 44px; margin-bottom: 46px;
     display: flex; align-items: center; justify-content: center; }
   .gift { position: absolute; left: 0; top: 50%; transform: translateY(-50%);
     border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
-    padding: 8px 18px; font-size: 16px; font-weight: 600;
+    padding: 8px 18px; font-size: 15px; font-weight: 600;
     background: rgba(201,162,39,0.08); }
-  .topbrand { text-align: center; font-size: 18px; font-weight: 800;
-    letter-spacing: 0.16em; color: #ece0c4; text-transform: uppercase; }
+  .topbrand { text-align: center; font-size: 20px; font-weight: 800;
+    letter-spacing: 0.14em; color: #ece0c4; text-transform: uppercase; }
   .topbrand .gold { color: #c9a227; display: block; font-size: 14px;
-    letter-spacing: 0.28em; margin-top: 3px; font-weight: 600; }
+    letter-spacing: 0.32em; margin-top: 9px; font-weight: 500; }
   @media (max-width: 620px) {
     .topbar { flex-direction: column; gap: 12px; min-height: 0; }
     .gift { position: static; transform: none; }
   }
   header { text-align: center; }
-  .brand-top { font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
-    text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+  .brand-top { font-size: 14px; letter-spacing: 0.38em; color: #c9a227;
+    text-transform: uppercase; margin-bottom: 18px; font-weight: 400;
+    opacity: 0.92; }
   .hero-title { font-size: clamp(36px, 7vw, 58px); font-weight: 800;
     line-height: 1.12; text-transform: uppercase; }
   .hero-title .cream { display: block; color: #ece0c4; }
