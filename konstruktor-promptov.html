@@ -13,25 +13,25 @@
     min-height: 100vh;
     padding: 24px 16px 60px;
     background-image: radial-gradient(circle at 50% 0%, rgba(196,30,30,0.12), transparent 55%),
-                      radial-gradient(circle at 50% 100%, rgba(201,162,39,0.07), transparent 50%);
+                      radial-gradient(circle at 50% 100%, rgba(236,200,101,0.07), transparent 50%);
   }
   .wrap { max-width: 760px; margin: 0 auto; }
 
   .topbar {
-    position: relative; min-height: 44px; margin-bottom: 34px;
+    position: relative; min-height: 44px; margin-bottom: 22px;
     display: flex; align-items: center; justify-content: center;
   }
   .gift {
     position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
+    border: 1px solid #ecc865; color: #fbe9b8; border-radius: 999px;
     padding: 8px 18px; font-size: 16px; font-weight: 600; letter-spacing: 0.04em;
-    background: rgba(201,162,39,0.08);
+    background: rgba(236,200,101,0.08);
   }
   .topbrand {
     text-align: center; font-size: 18px; font-weight: 800; letter-spacing: 0.16em;
     color: #ece0c4; text-transform: uppercase;
   }
-  .topbrand .gold { color: #c9a227; display: block; font-size: 14px;
+  .topbrand .gold { color: #ecc865; display: block; font-size: 14px;
     letter-spacing: 0.28em; margin-top: 3px; font-weight: 600; }
   @media (max-width: 620px) {
     .topbar { flex-direction: column; gap: 12px; min-height: 0; }
@@ -40,24 +40,26 @@
 
   header { text-align: center; margin-bottom: 40px; }
   .brand-top {
-    font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
-    text-transform: uppercase; margin-bottom: 16px;
+    font-size: 23px; letter-spacing: 0.07em; font-weight: 600;
+    text-transform: uppercase; margin-bottom: 10px;
+    background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 12px rgba(246,220,147,0.25));
   }
+  .from { font-size: 19px; font-weight: 800; background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 12px rgba(246,220,147,0.25)); }
   h1 { font-size: clamp(36px, 7vw, 58px); font-weight: 800; line-height: 1.12; }
   h1 .red {
     background: linear-gradient(180deg, #e8493c, #8e1414);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   .sub { margin-top: 16px; color: #c4b797; font-size: 18px; line-height: 1.55; }
-  .gold-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:18px; }
-  .gold-line { width: 90px; height:1px; background: linear-gradient(90deg, transparent, #c9a227); }
-  .gold-line.r { background: linear-gradient(90deg, #c9a227, transparent); }
-  .spark { color:#e8c96a; font-size:14px; }
+  .gold-row { display:flex; align-items:center; justify-content:center; gap:12px; margin: 4px 0 44px; }
+  .gold-line { width: 90px; height:1px; background: linear-gradient(90deg, transparent, #ecc865); }
+  .gold-line.r { background: linear-gradient(90deg, #ecc865, transparent); }
+  .spark { color:#fbe9b8; font-size:14px; }
 
   .step { margin-bottom: 26px; }
   .step-title {
     font-size: 17px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: #c9a227; margin-bottom: 12px; font-weight: 700;
+    color: #ecc865; margin-bottom: 12px; font-weight: 700;
   }
   .options { display: flex; flex-wrap: wrap; gap: 10px; }
   .opt {
@@ -65,16 +67,16 @@
     border-radius: 12px; padding: 12px 16px; font-size: 15px; cursor: pointer;
     transition: all .18s ease; user-select: none;
   }
-  .opt:hover { border-color: #c9a227; transform: translateY(-1px); }
+  .opt:hover { border-color: #ecc865; transform: translateY(-1px); }
   .opt.active {
-    border-color: #c9a227; background: linear-gradient(180deg, #241d10, #1a150c);
-    box-shadow: 0 0 18px rgba(201,162,39,0.25); color: #f5ecd8;
+    border-color: #ecc865; background: linear-gradient(180deg, #241d10, #1a150c);
+    box-shadow: 0 0 18px rgba(236,200,101,0.25); color: #f5ecd8;
   }
   input[type=text] {
     width: 100%; padding: 14px 16px; border-radius: 12px; font-size: 16px;
     border: 1px solid #3a332a; background: #16130f; color: #ece0c4; outline: none;
   }
-  input[type=text]:focus { border-color: #c9a227; }
+  input[type=text]:focus { border-color: #ecc865; }
   input::placeholder { color: #6e6450; }
 
   .btn {
@@ -88,24 +90,24 @@
   .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(196,30,30,0.45); }
 
   #result-box { display: none; margin-top: 30px; }
-  #result-title { font-size: 15px; color: #c9a227; letter-spacing: 0.1em;
+  #result-title { font-size: 15px; color: #ecc865; letter-spacing: 0.1em;
     text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
   #result {
     width: 100%; min-height: 380px; padding: 18px; font-size: 14.5px; line-height: 1.55;
-    border-radius: 14px; border: 1px solid #c9a22755; background: #14110c; color: #f0e6cd;
+    border-radius: 14px; border: 1px solid #ecc86555; background: #14110c; color: #f0e6cd;
     font-family: 'Consolas', 'Menlo', monospace; resize: vertical; white-space: pre-wrap;
   }
   .btn-copy {
     margin-top: 12px; padding: 13px; font-size: 15px; width: 100%;
-    background: transparent; color: #c9a227; border: 1px solid #c9a227;
+    background: transparent; color: #ecc865; border: 1px solid #ecc865;
     border-radius: 12px; cursor: pointer; font-weight: 600; transition: all .18s;
   }
-  .btn-copy:hover { background: #c9a22715; }
+  .btn-copy:hover { background: #ecc86515; }
   .hint { margin-top: 14px; font-size: 13.5px; color: #8d8168; line-height: 1.5; }
 
   footer { margin-top: 54px; text-align: center; font-size: 16px; color: #9a8d72; line-height: 1.7; }
-  footer .name { color: #c9a227; font-weight: 600; }
-  footer a { color: #e8c96a; text-decoration: none; }
+  footer .name { color: #ecc865; font-weight: 600; }
+  footer a { color: #fbe9b8; text-decoration: none; }
 
   .qr-title {
     text-align: center; margin-top: 50px; font-size: 20px; font-weight: 700;
@@ -117,27 +119,27 @@
   .qr-card {
     background: #fff; border-radius: 16px; padding: 14px 14px 10px;
     text-align: center; width: 200px;
-    box-shadow: 0 0 0 1px #c9a22744, 0 8px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 1px #ecc86544, 0 8px 30px rgba(0,0,0,0.5);
   }
   .qr-card img { width: 170px; height: 170px; display: block; margin: 0 auto; }
   .qr-card .qr-net { color: #1a1a1a; font-weight: 700; font-size: 15px; margin-top: 6px; }
-  .qr-label { margin-top: 10px; font-size: 15px; color: #c9a227; font-weight: 600; }
+  .qr-label { margin-top: 10px; font-size: 15px; color: #ecc865; font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="topbar">
     <span class="gift">🎁 Подарок</span>
-    <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
+    <span class="topbrand">ВАЙБКОДИНГ</span>
   </div>
   <header>
     <div class="brand-top">За пределы привычного</div>
+    <div class="gold-row"><div class="gold-line"></div><span class="spark">✦</span>
+      <span class="from">с Анарой Сарсеновой</span>
+      <span class="spark">✦</span><div class="gold-line r"></div></div>
     <h1>КОНСТРУКТОР <span class="red">ПРОМПТОВ</span></h1>
     <p class="sub">Собери профессиональный промпт для ChatGPT или Claude за 20 секунд.<br>
     Выбери 4 кубика, впиши тему — получи готовый промпт, который пишет контент как маркетолог с опытом.</p>
-    <div class="gold-row"><div class="gold-line"></div><span class="spark">✦</span>
-      <span style="color:#c9a227; font-size:22px; font-weight:600;">от Анары Сарсеновой</span>
-      <span class="spark">✦</span><div class="gold-line r"></div></div>
   </header>
 
   <div class="step">

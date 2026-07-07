@@ -4,131 +4,136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30 дней контента без мук — Анара Сарсенова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&subset=cyrillic&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #0a0908; color: #ece0c4; min-height: 100vh;
-    padding: 24px 16px 60px; font-size: 17px; line-height: 1.6;
-    background-image: radial-gradient(circle at 50% 0%, rgba(196,30,30,0.12), transparent 55%),
-                      radial-gradient(circle at 50% 100%, rgba(201,162,39,0.07), transparent 50%);
+    background: #ffffff; color: #2b2318; min-height: 100vh;
+    font-size: 17px; line-height: 1.6;
+  }
+  /* единая шрифтовая система: все витринные надписи — Montserrat */
+  .topbrand, .brand-top, .hero-title, .gold-row .from, .gift, h2, .qr-title {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  }
+  .dark-head {
+    background: #0a0908;
+    background-image: radial-gradient(circle at 50% 0%, rgba(196,30,30,0.14), transparent 55%),
+                      radial-gradient(circle at 50% 120%, rgba(201,162,39,0.10), transparent 55%);
+    padding: 26px 16px 46px; color: #ece0c4;
   }
   .wrap { max-width: 760px; margin: 0 auto; }
-  .topbar {
-    position: relative; min-height: 44px; margin-bottom: 38px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .gift {
-    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
-    padding: 8px 18px; font-size: 16px; font-weight: 600;
-    background: rgba(201,162,39,0.08);
-  }
-  .topbrand {
-    text-align: center; font-size: 18px; font-weight: 800; letter-spacing: 0.16em;
-    color: #ece0c4; text-transform: uppercase;
-  }
+  .content { max-width: 760px; margin: 0 auto; padding: 20px 16px 60px; }
+
+  .topbar { position: relative; min-height: 44px; margin-bottom: 22px;
+    display: flex; align-items: center; justify-content: center; }
+  .gift { position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    border: 1px solid #f2d689; color: #fbe9b8; border-radius: 999px;
+    padding: 8px 18px; font-size: 15px; font-weight: 600;
+    background: rgba(239,194,74,0.10); }
+  .topbrand { text-align: center; font-size: 20px; font-weight: 800;
+    letter-spacing: 0.14em; color: #ece0c4; text-transform: uppercase; }
   .topbrand .gold { color: #c9a227; display: block; font-size: 14px;
-    letter-spacing: 0.28em; margin-top: 3px; font-weight: 600; }
+    letter-spacing: 0.32em; margin-top: 9px; font-weight: 500; }
   @media (max-width: 620px) {
     .topbar { flex-direction: column; gap: 12px; min-height: 0; }
     .gift { position: static; transform: none; }
   }
-
-  header { text-align: center; margin-bottom: 44px; }
-  .brand-top {
-    font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
-    text-transform: uppercase; margin-bottom: 16px;
-  }
-  .hero-title {
-    font-size: clamp(36px, 7vw, 58px); font-weight: 800; line-height: 1.12;
-    text-transform: uppercase;
-  }
-  .hero-title .cream { display: block; color: #ece0c4; }
-  .hero-title .red {
-    display: block;
-    background: linear-gradient(180deg, #e8493c, #8e1414);
+  header { text-align: center; }
+  .brand-top { font-size: 23px; letter-spacing: 0.07em;
+    text-transform: uppercase; margin-bottom: 10px; font-weight: 600;
+    background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
+    filter: drop-shadow(0 0 12px rgba(246,220,147,0.25)); }
+  .hero-title { font-size: clamp(36px, 7vw, 58px); font-weight: 800;
+    line-height: 1.12; text-transform: uppercase; }
+  .hero-title .cream { display: block; color: #ece0c4; }
+  .hero-title .red { display: block;
+    background: linear-gradient(180deg, #e8493c, #a01818);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
   .hero-sub { margin-top: 16px; color: #c4b797; font-size: 18px; line-height: 1.55; }
   .gold-row { display: flex; align-items: center; justify-content: center;
     gap: 12px; margin-top: 20px; }
   .gold-line { width: 90px; height: 1px;
-    background: linear-gradient(90deg, transparent, #c9a227); }
-  .gold-line.r { background: linear-gradient(90deg, #c9a227, transparent); }
-  .gold-row .spark { color: #e8c96a; font-size: 14px; }
-  .gold-row .from { color: #c9a227; font-size: 22px; font-weight: 600; }
+    background: linear-gradient(90deg, transparent, #f2d689); }
+  .gold-line.r { background: linear-gradient(90deg, #f2d689, transparent); }
+  .gold-row .spark { color: #fff0c2; font-size: 14px;
+    text-shadow: 0 0 10px rgba(255,240,194,0.8); }
+  .gold-row .from { font-size: 19px; font-weight: 800;
+    background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 10px rgba(246,220,147,0.22)); }
+  header .gold-row { margin-top: 0; margin-bottom: 52px; }
 
-  h3 { font-size: clamp(20px, 4vw, 26px); font-weight: 600; color: #c4b797;
-       text-align: center; margin: 0 0 26px; }
   h2 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; margin: 48px 0 18px;
-       background: linear-gradient(180deg, #e8493c, #8e1414);
-       -webkit-background-clip: text; background-clip: text; color: transparent; }
-  p { margin: 14px 0; color: #d6c9a8; }
-  strong { color: #f0e6cd; }
-  ol, ul { margin: 14px 0 14px 24px; color: #d6c9a8; }
+    background: linear-gradient(180deg, #d8352a, #8e1414);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { margin: 14px 0; color: #2b2318; }
+  strong { color: #000; }
+  ol, ul { margin: 14px 0 14px 24px; color: #2b2318; }
   li { margin: 6px 0; }
-  em { color: #b8ab8d; }
+  em { color: #6b6353; }
   hr { border: none; height: 1px; margin: 40px auto; width: 60%;
-       background: linear-gradient(90deg, transparent, #c9a22766, transparent); }
+    background: linear-gradient(90deg, transparent, #c9a227, transparent); }
 
-  /* промпт-карточки из blockquote */
   blockquote {
     position: relative;
-    border: 1px solid #c9a22755; background: #16130d; border-radius: 14px;
+    border: 1px solid #e2d5ae; background: #fbfaf7; border-radius: 14px;
     padding: 18px 20px 46px; margin: 12px 0 26px;
-    font-size: 15.5px; color: #f0e6cd; line-height: 1.55;
+    font-size: 15.5px; color: #2b2318; line-height: 1.55;
+    box-shadow: 0 3px 14px rgba(60,45,15,0.07);
   }
-  blockquote p { margin: 6px 0; color: #f0e6cd; }
+  blockquote p { margin: 6px 0; color: #2b2318; }
   .copy-btn {
     position: absolute; right: 12px; bottom: 10px;
-    background: transparent; border: 1px solid #c9a227; color: #c9a227;
+    background: transparent; border: 1px solid #a8821a; color: #a8821a;
     border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer;
     font-weight: 600;
   }
-  .copy-btn:hover { background: #c9a22715; }
+  .copy-btn:hover { background: #a8821a12; }
 
-  /* заголовок промпта (strong в начале строки перед blockquote) */
-  .wrap > p > strong:only-child { font-size: 18px; color: #ece0c4; }
-
-  .qr-title { text-align: center; margin-top: 56px; font-size: 20px; font-weight: 700;
-    color: #ece0c4; }
+  .qr-title { text-align: center; margin-top: 56px; font-size: 20px;
+    font-weight: 700; color: #1f1a12; }
   .qr-row { display: flex; justify-content: center; gap: 28px; margin-top: 22px;
     flex-wrap: wrap; }
   .qr-card { background: #fff; border-radius: 16px; padding: 14px 14px 10px;
     text-align: center; width: 200px;
-    box-shadow: 0 0 0 1px #c9a22744, 0 8px 30px rgba(0,0,0,0.5); }
+    box-shadow: 0 0 0 1px #d8c48a, 0 8px 24px rgba(60,45,15,0.12); }
   .qr-card img { width: 170px; height: 170px; display: block; margin: 0 auto; }
   .qr-net { color: #1a1a1a; font-weight: 700; font-size: 15px; margin-top: 6px; }
-  .qr-label { margin-top: 10px; font-size: 15px; color: #c9a227; font-weight: 600;
+  .qr-label { margin-top: 10px; font-size: 15px; color: #a8821a; font-weight: 600;
     text-align: center; }
-  footer { margin-top: 50px; text-align: center; font-size: 15px; color: #9a8d72;
+  footer { margin-top: 50px; text-align: center; font-size: 15px; color: #6b6353;
     line-height: 1.7; }
-  footer .name { color: #c9a227; font-weight: 600; }
-  footer a { color: #e8c96a; text-decoration: none; }
+  footer .name { color: #a8821a; font-weight: 600; }
+  footer a { color: #a8821a; text-decoration: none; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="topbar">
-    <span class="gift">🎁 Подарок</span>
-    <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
+<div class="dark-head">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="gift">🎁 Подарок</span>
+      <span class="topbrand">ВАЙБКОДИНГ</span>
+    </div>
+    <header>
+      <div class="brand-top">За пределы привычного</div>
+      <div class="gold-row">
+        <div class="gold-line"></div><span class="spark">✦</span>
+        <span class="from">с Анарой Сарсеновой</span>
+        <span class="spark">✦</span><div class="gold-line r"></div>
+      </div>
+      <div class="hero-title">
+        <span class="cream">30 ДНЕЙ КОНТЕНТА</span>
+        <span class="red">БЕЗ МУК</span>
+      </div>
+      <p class="hero-sub">Система генерации идей: 8 механик с готовыми промптами.<br>80–100 тем для постов и рилсов — на 2–3 месяца вперёд.</p>
+    </header>
   </div>
-
-  <header>
-    <div class="brand-top">За пределы привычного</div>
-    <div class="hero-title">
-      <span class="cream">30 ДНЕЙ КОНТЕНТА</span>
-      <span class="red">БЕЗ МУК</span>
-    </div>
-    <p class="hero-sub">Система генерации идей: 8 механик с готовыми промптами.<br>80–100 тем для постов и рилсов — на 2–3 месяца вперёд.</p>
-    <div class="gold-row">
-      <div class="gold-line"></div><span class="spark">✦</span>
-      <span class="from">от Анары Сарсеновой</span>
-      <span class="spark">✦</span><div class="gold-line r"></div>
-    </div>
-  </header>
-
+</div>
+<div class="content">
 <p>Эта система решает главную боль эксперта: «о чём писать?». За 4 недели ты
 соберёшь 80-100 идей для постов и рилсов — хватит на 2-3 месяца вперёд.
 Каждая механика = готовый промпт: копируй, подставь свою нишу, получи темы.</p>
