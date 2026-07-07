@@ -30,7 +30,7 @@
   .topbar { position: relative; min-height: 44px; margin-bottom: 22px;
     display: flex; align-items: center; justify-content: center; }
   .gift { position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    border: 1px solid #efc24a; color: #ffdf8e; border-radius: 999px;
+    border: 1px solid #f2d689; color: #fbe9b8; border-radius: 999px;
     padding: 8px 18px; font-size: 15px; font-weight: 600;
     background: rgba(239,194,74,0.10); }
   .topbrand { text-align: center; font-size: 20px; font-weight: 800;
@@ -42,9 +42,11 @@
     .gift { position: static; transform: none; }
   }
   header { text-align: center; }
-  .brand-top { font-size: 23px; letter-spacing: 0.07em; color: #f0c65c;
+  .brand-top { font-size: 23px; letter-spacing: 0.07em;
     text-transform: uppercase; margin-bottom: 10px; font-weight: 600;
-    opacity: 0.95; }
+    background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 12px rgba(246,220,147,0.25)); }
   .hero-title { font-size: clamp(36px, 7vw, 58px); font-weight: 800;
     line-height: 1.12; text-transform: uppercase; }
   .hero-title .cream { display: block; color: #ece0c4; }
@@ -55,10 +57,14 @@
   .gold-row { display: flex; align-items: center; justify-content: center;
     gap: 12px; margin-top: 20px; }
   .gold-line { width: 90px; height: 1px;
-    background: linear-gradient(90deg, transparent, #efc24a); }
-  .gold-line.r { background: linear-gradient(90deg, #efc24a, transparent); }
-  .gold-row .spark { color: #ffe49a; font-size: 14px; }
-  .gold-row .from { color: #f0c65c; font-size: 19px; font-weight: 800; }
+    background: linear-gradient(90deg, transparent, #f2d689); }
+  .gold-line.r { background: linear-gradient(90deg, #f2d689, transparent); }
+  .gold-row .spark { color: #fff0c2; font-size: 14px;
+    text-shadow: 0 0 10px rgba(255,240,194,0.8); }
+  .gold-row .from { font-size: 19px; font-weight: 800;
+    background: linear-gradient(180deg, #fff6dd 0%, #f6dc93 45%, #e4b54e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 10px rgba(246,220,147,0.22)); }
   header .gold-row { margin-top: 0; margin-bottom: 52px; }
 
   h2 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; margin: 48px 0 18px;
