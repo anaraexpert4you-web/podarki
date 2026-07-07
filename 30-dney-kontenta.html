@@ -35,10 +35,30 @@
     .gift { position: static; transform: none; }
   }
 
-  h1 { font-size: clamp(32px, 6.5vw, 52px); font-weight: 800; line-height: 1.14;
-       text-align: center; margin: 10px 0 8px;
-       background: linear-gradient(180deg, #f5ecd8, #d8c9a0);
-       -webkit-background-clip: text; background-clip: text; color: transparent; }
+  header { text-align: center; margin-bottom: 44px; }
+  .brand-top {
+    font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: clamp(36px, 7vw, 58px); font-weight: 800; line-height: 1.12;
+    text-transform: uppercase;
+  }
+  .hero-title .cream { display: block; color: #ece0c4; }
+  .hero-title .red {
+    display: block;
+    background: linear-gradient(180deg, #e8493c, #8e1414);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-sub { margin-top: 16px; color: #c4b797; font-size: 18px; line-height: 1.55; }
+  .gold-row { display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin-top: 20px; }
+  .gold-line { width: 90px; height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a227); }
+  .gold-line.r { background: linear-gradient(90deg, #c9a227, transparent); }
+  .gold-row .spark { color: #e8c96a; font-size: 14px; }
+  .gold-row .from { color: #c9a227; font-size: 22px; font-weight: 600; }
+
   h3 { font-size: clamp(20px, 4vw, 26px); font-weight: 600; color: #c4b797;
        text-align: center; margin: 0 0 26px; }
   h2 { font-size: clamp(24px, 5vw, 34px); font-weight: 800; margin: 48px 0 18px;
@@ -95,8 +115,20 @@
     <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
   </div>
 
-<h1>30 дней контента без мук</h1>
-<h3>Система генерации идей для предпринимателя — от Анары Сарсеновой</h3>
+  <header>
+    <div class="brand-top">За пределы привычного</div>
+    <div class="hero-title">
+      <span class="cream">30 ДНЕЙ КОНТЕНТА</span>
+      <span class="red">БЕЗ МУК</span>
+    </div>
+    <p class="hero-sub">Система генерации идей: 8 механик с готовыми промптами.<br>80–100 тем для постов и рилсов — на 2–3 месяца вперёд.</p>
+    <div class="gold-row">
+      <div class="gold-line"></div><span class="spark">✦</span>
+      <span class="from">от Анары Сарсеновой</span>
+      <span class="spark">✦</span><div class="gold-line r"></div>
+    </div>
+  </header>
+
 <p>Эта система решает главную боль эксперта: «о чём писать?». За 4 недели ты
 соберёшь 80-100 идей для постов и рилсов — хватит на 2-3 месяца вперёд.
 Каждая механика = готовый промпт: копируй, подставь свою нишу, получи темы.</p>

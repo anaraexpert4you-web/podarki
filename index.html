@@ -13,12 +13,34 @@
                       radial-gradient(circle at 50% 100%, rgba(201,162,39,0.08), transparent 50%);
   }
   .wrap { max-width: 640px; margin: 0 auto; }
+  .topbar { position: relative; min-height: 44px; margin-bottom: 38px;
+    display: flex; align-items: center; justify-content: center; }
+  .gift { position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    border: 1px solid #c9a227; color: #e8c96a; border-radius: 999px;
+    padding: 8px 18px; font-size: 16px; font-weight: 600;
+    background: rgba(201,162,39,0.08); }
   .topbrand { font-size: 18px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
   .topbrand .gold { color: #c9a227; display: block; font-size: 14px; letter-spacing: 0.28em; margin-top: 3px; }
-  h1 { margin: 34px 0 10px; font-size: clamp(34px, 7vw, 54px); font-weight: 800;
+  @media (max-width: 620px) {
+    .topbar { flex-direction: column; gap: 12px; min-height: 0; }
+    .gift { position: static; transform: none; }
+  }
+  .brand-top { font-size: 15px; letter-spacing: 0.35em; color: #c9a227;
+    text-transform: uppercase; margin-bottom: 16px; }
+  .hero-title { font-size: clamp(36px, 7vw, 58px); font-weight: 800; line-height: 1.12;
+    text-transform: uppercase; }
+  .hero-title .cream { display: block; color: #ece0c4; }
+  .hero-title .red { display: block;
     background: linear-gradient(180deg, #e8493c, #8e1414);
     -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .sub { color: #c4b797; font-size: 18px; margin-bottom: 40px; }
+  .sub { color: #c4b797; font-size: 18px; margin-top: 16px; margin-bottom: 0; line-height: 1.55; }
+  .gold-row { display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin: 20px 0 40px; }
+  .gold-line { width: 90px; height: 1px;
+    background: linear-gradient(90deg, transparent, #c9a227); }
+  .gold-line.r { background: linear-gradient(90deg, #c9a227, transparent); }
+  .spark { color: #e8c96a; font-size: 14px; }
+  .from { color: #c9a227; font-size: 22px; font-weight: 600; }
   a.card {
     display: block; text-decoration: none; color: #ece0c4; text-align: left;
     border: 1px solid #3a332a; background: #16130f; border-radius: 16px;
@@ -35,9 +57,21 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></div>
-  <h1>🎁 Подарки</h1>
-  <p class="sub">Инструменты, которые запускают твою контент-машину на ИИ</p>
+  <div class="topbar">
+    <span class="gift">🎁 Подарок</span>
+    <span class="topbrand">ВАЙБКОДИНГ <span class="gold">Анара Сарсенова</span></span>
+  </div>
+  <div class="brand-top">За пределы привычного</div>
+  <div class="hero-title">
+    <span class="cream">Подарки для твоей</span>
+    <span class="red">Контент-машины</span>
+  </div>
+  <p class="sub">Инструменты, которые запускают твой контент на ИИ:<br>выбирай подарок и пользуйся прямо сейчас.</p>
+  <div class="gold-row">
+    <div class="gold-line"></div><span class="spark">✦</span>
+    <span class="from">от Анары Сарсеновой</span>
+    <span class="spark">✦</span><div class="gold-line r"></div>
+  </div>
 
   <a class="card" href="konstruktor-promptov.html">
     <span class="t">✨ Конструктор промптов</span>
